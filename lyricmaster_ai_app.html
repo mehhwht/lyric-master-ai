@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LyricMaster AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #101010;
+      color: #f2f2f2;
+      padding: 20px;
+    }
+    h1 {
+      color: #00ffcc;
+    }
+    input, textarea, button {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      background-color: #00ffcc;
+      color: #101010;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .output {
+      border: 1px solid #333;
+      background-color: #181818;
+      padding: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎶 LyricMaster AI</h1>
+  <p>Type your lyrics and instructions below. You can also upload your MP3 audio to start your AI-powered song project!</p>
+
+  <textarea id="lyricsInput" rows="6" placeholder="Enter lyrics and instructions in [brackets]..."></textarea>
+  <input type="file" id="mp3Input" accept="audio/mpeg">
+  <button onclick="analyzeProject()">Analyze & Compose</button>
+
+  <div class="output" id="outputBox">
+    Your analysis and suggestions will appear here.
+  </div>
+
+  <script>
+    function analyzeProject() {
+      const lyrics = document.getElementById("lyricsInput").value;
+      const mp3File = document.getElementById("mp3Input").files[0];
+
+      const outputBox = document.getElementById("outputBox");
+
+      if (!lyrics && !mp3File) {
+        outputBox.innerHTML = "❗ Please enter some lyrics or upload an audio file.";
+        return;
+      }
+
+      outputBox.innerHTML = "🔍 AI is analyzing your input... (pretend it's thinking 🤖)";
+
+      setTimeout(() => {
+        outputBox.innerHTML = `✅ AI Suggestion:
+        <br>Theme Match: Chill Lo-fi 🌙<br>
+        Background Instruments: Piano + Ambient Pads<br>
+        Genre: Experimental Indie 🎧<br>
+        Voice Style: Female Whispery Vocals
+        <br><br>
+        Want to regenerate with new tone? Try adding: [make it darker/moodier] etc.`;
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
